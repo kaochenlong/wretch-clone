@@ -1,3 +1,17 @@
 <h1>文章列表</h1>
 
-<a href="/articles/new">新增文章</a>
+<%= link_to "新增文章", new_article_path %>
+
+<ul>
+<% @articles.each do |article| %>
+  <li>
+    <%= link_to article.title, article_path(article) %>
+    <%= link_to '更新', edit_article_path(article) %>
+    <%= link_to '刪除', article_path(article),
+                       data: {
+                         turbo_method: 'delete',
+                         turbo_confirm: '確定刪除？'
+                       } %>
+  </li>
+<% end %>
+</ul>

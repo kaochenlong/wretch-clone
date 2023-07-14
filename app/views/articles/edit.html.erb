@@ -1,0 +1,15 @@
+<h1>更新文章</h1>
+
+<%= form_with(model: @article, data: { turbo: false }) do |f| %>
+  <div>
+    <%= f.label :title, '標題' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, '內文' %>
+    <%= f.text_area :content %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
