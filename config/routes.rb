@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resource :users, except: [:show, :destroy]
+
   get '/about', to: 'pages#about'
 end
