@@ -11,9 +11,8 @@
   </head>
 
   <body>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flash' %>
     <%= yield %>
   </body>
 </html>

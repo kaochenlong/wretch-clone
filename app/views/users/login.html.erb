@@ -1,0 +1,17 @@
+<h1>會員登入</h1>
+
+<%= form_with(scope: :user,
+              url: logining_users_path,
+              data: { turbo: false }) do |f| %>
+  <div>
+    <%= f.label :email%>
+    <%= f.email_field :email%>
+  </div>
+
+  <div>
+    <%= f.label :password%>
+    <%= f.password_field :password%>
+  </div>
+
+  <%= f.submit '登入' %>
+<% end %>
