@@ -1,6 +1,12 @@
 <nav>
   <ul>
-    <li><%= link_to "登入", login_users_path %></li>
-    <li><%= link_to "註冊", new_users_path %></li>
+    <% if user_signed_in? %>
+      <li><%= current_user.email %></li>
+      <li><%= link_to "登出", logout_users_path,
+                             data: { turbo_method: 'delete' } %></li>
+    <% else %>
+      <li><%= link_to "登入", login_users_path %></li>
+      <li><%= link_to "註冊", new_users_path %></li>
+    <% end %>
   </ul>
 </nav>

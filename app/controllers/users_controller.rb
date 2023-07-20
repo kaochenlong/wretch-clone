@@ -24,10 +24,17 @@ class UsersController < ApplicationController
 
     if user
       # 發 session/cookie
+      session[:kitty] = user.id
       redirect_to root_path, notice: '登入成功'
     else
       redirect_to login_users_path, alert: '登入失敗'
     end
+  end
+
+  def logout
+    # 登出
+    session[:kitty] = nil
+    redirect_to root_path, notice: '已登出'
   end
 
   private

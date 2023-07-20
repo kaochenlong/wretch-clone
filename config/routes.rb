@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :login
       post :logining
+      delete :logout
     end
   end
 
