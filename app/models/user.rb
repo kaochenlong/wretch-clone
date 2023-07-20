@@ -1,6 +1,12 @@
 class User < ApplicationRecord
-  validates :password, confirmation: true
+  # callbacks
+  before_create :encrypt_password
 
+  # relationships
+  has_many :articles
+
+  # validations
+  validates :password, confirmation: true
   validates :email, presence: true,
                     uniqueness: true,
                     format: {
@@ -8,8 +14,8 @@ class User < ApplicationRecord
                       message: '格式有誤'
                     }
 
-  before_create :encrypt_password
 
+  # class methods
   def self.login(email, password)
     return nil if email.empty? or password.empty?
 
