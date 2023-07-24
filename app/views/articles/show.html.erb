@@ -5,11 +5,9 @@
 </article>
 
 <hr>
-<h2>留言</h2>
+<h2>留言<%= Time.now %></h2>
 
-<%= form_with(model: @comment,
-              url: article_comments_path(@article),
-              data: { turbo: false }) do |f| %>
+<%= form_with(model: [@article, @comment]) do |f| %>
   <div>
     <%= f.label :content, '留言內容' %><br />
     <%= f.text_area :content%>
@@ -18,12 +16,9 @@
   <%= f.submit '新增留言'%>
 <% end %>
 
-<ul>
+<ul id="comment_list">
   <% @comments.each do |comment| %>
-    <li>
-      <%= comment.content %>
-      (<%= comment.created_at %>)
-    </li>
+    <%= render 'comment', comment: comment %>
   <% end %>
 </ul>
 <hr>
