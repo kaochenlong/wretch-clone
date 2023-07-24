@@ -17,8 +17,6 @@
 <% end %>
 
 <ul id="comment_list">
-  <% @comments.each do |comment| %>
-    <%= render 'comment', comment: comment %>
-  <% end %>
+  <%= render @comments %>
 </ul>
 <hr>
