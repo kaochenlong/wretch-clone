@@ -3,9 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_article, only: [:create]
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user = current_user
-    @comment.article = @article
+    @comment = @article.comments.new(comment_params)
 
     if @comment.save
       redirect_to article_path(@article), notice: '留言成功'
@@ -20,6 +18,8 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment)
+          .permit(:content)
+          .merge(user: current_user)
   end
 end
