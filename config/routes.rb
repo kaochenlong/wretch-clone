@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'articles#index'
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create, :destroy], shallow: true
+  end
 
   resource :users, except: [:show, :destroy] do
     collection do

@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # relationships
   has_many :articles
+  has_many :comments
 
   # validations
   validates :password, confirmation: true
