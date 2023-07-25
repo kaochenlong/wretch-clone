@@ -1,4 +1,14 @@
-<h1><%= @article.title %></h1>
+<div data-controller="hello"
+     data-action="abc@window->hello#go">X</div>
+
+<h1>
+  <%= @article.title %>
+</h1>
+
+<div data-controller="like" data-id="<%= @article.id %>">
+  <a href="#" data-like-target="likebtn"
+              data-action="click->like#toggle">讚</a>
+</div>
 
 <article>
   <p><%= @article.content %></p>
