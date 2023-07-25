@@ -5,8 +5,14 @@ export default class extends Controller {
   static targets = ["likebtn"];
 
   connect() {
-    const { id } = this.element.dataset;
+    const { id, liked } = this.element.dataset;
     this.id = id;
+
+    if (liked == "true") {
+      this.likebtnTarget.textContent = "已讚";
+    } else {
+      this.likebtnTarget.textContent = "未讚";
+    }
   }
 
   toggle(e) {

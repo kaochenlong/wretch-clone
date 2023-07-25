@@ -1,13 +1,12 @@
-<div data-controller="hello"
-     data-action="abc@window->hello#go">X</div>
-
 <h1>
   <%= @article.title %>
 </h1>
 
-<div data-controller="like" data-id="<%= @article.id %>">
+<div data-controller="like"
+     data-liked="<%= current_user.liked?(@article) %>"
+     data-id="<%= @article.id %>">
   <a href="#" data-like-target="likebtn"
-              data-action="click->like#toggle">讚</a>
+              data-action="click->like#toggle"></a>
 </div>
 
 <article>
