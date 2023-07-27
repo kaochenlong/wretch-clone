@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # relationships
   has_many :articles
   has_many :comments
+  has_many :albums
 
   has_many :like_logs
   has_many :liked_articles, through: :like_logs, source: :article

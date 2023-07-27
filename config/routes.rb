@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy], shallow: true
   end
 
+  resources :albums
+
   resource :users, except: [:show, :destroy] do
     collection do
       get :login

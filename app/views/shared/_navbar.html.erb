@@ -1,6 +1,8 @@
 <nav>
   <ul>
     <% if user_signed_in? %>
+      <li><%= link_to '文章', articles_path %></li>
+      <li><%= link_to '相薄', albums_path %></li>
       <li><%= current_user.email %></li>
       <li><%= link_to "登出", logout_users_path,
                              data: { turbo_method: 'delete' } %></li>
