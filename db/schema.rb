@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_25_062733) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_030123) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_062733) do
     t.datetime "updated_at", null: false
     t.string "sub_title"
     t.integer "user_id"
+    t.string "password"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :articles do
+    member do
+      patch :unlock
+    end
     resources :comments, only: [:create, :destroy], shallow: true
   end
 
