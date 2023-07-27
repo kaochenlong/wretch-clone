@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.action-btn {
+  @apply select-none hover:bg-rose-500 rounded-full inline-block text-white px-4 py-1 bg-rose-700;
+}
 /*
 
 @layer components {

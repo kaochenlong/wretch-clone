@@ -1,6 +1,6 @@
-<h1>文章列表</h1>
+<h1 class="text-2xl">文章列表</h1>
 
-<%= link_to "新增文章", new_article_path %>
+<%= link_to "新增文章", new_article_path, class: 'action-btn' %>
 
 <ul>
 <% @articles.each do |article| %>
