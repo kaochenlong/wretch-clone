@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'articles#index'
 
+  resources :payments, only: [:show]
+  resources :orders, only: [:index, :show, :create]
+
   resources :articles do
     member do
       patch :unlock
@@ -29,4 +32,5 @@ Rails.application.routes.draw do
   end
 
   get '/about', to: 'pages#about'
+  get '/pricing', to: 'pages#pricing'
 end

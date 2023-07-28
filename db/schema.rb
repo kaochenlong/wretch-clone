@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_081418) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_083626) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -82,6 +82,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_081418) do
     t.index ["user_id"], name: "index_like_logs_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "num"
+    t.string "name"
+    t.string "tel"
+    t.string "solution"
+    t.integer "user_id", null: false
+    t.integer "amount"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["num"], name: "index_orders_on_num", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -98,4 +112,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_081418) do
   add_foreign_key "comments", "users"
   add_foreign_key "like_logs", "articles"
   add_foreign_key "like_logs", "users"
+  add_foreign_key "orders", "users"
 end

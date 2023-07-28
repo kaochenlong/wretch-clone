@@ -1,0 +1,15 @@
+<h1 class="text-3xl">訂單資訊</h1>
+
+<%= form_with(model: @order) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :tel %>
+    <%= f.phone_field :tel %>
+  </div>
+
+  <%= f.submit '前往付款', class: 'action-btn' %>
+
+<% end %>
