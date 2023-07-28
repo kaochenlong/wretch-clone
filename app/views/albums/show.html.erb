@@ -1,1 +1,12 @@
-<h1></h1>
+<h1 class="text-2xl"><%= @album.name %></h1>
+
+<%= form_with(model: @album, data: { turbo: false }) do |f| %>
+  <%= f.file_field :photos, multiple: true %>
+  <%= f.submit '上傳', class: 'action-btn' %>
+<% end %>
+
+<hr>
+
+<% @album.photos.each do |photo| %>
+  <%= image_tag photo.variant(:small) %>
+<% end %>
