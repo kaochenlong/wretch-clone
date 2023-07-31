@@ -11,18 +11,22 @@ class OrdersController < ApplicationController
   def please_pay
     order = Order.find_by!(num: params[:id])
 
-    result = gateway.transaction.sale(
-      amount: order.amount,
-      payment_method_nonce: params[:nonce]
-    )
+    if order.may_pay?
+      result = gateway.transaction.sale(
+        amount: order.amount,
+        payment_method_nonce: params[:nonce]
+      )
 
-    if result.success?
-      # .....
-      # order.update(status: 'paid')
-      redirect_to root_path, notice: '交易成功'
+      if result.success?
+        order.pay!
+        redirect_to root_path, notice: '交易成功'
+      else
+        redirect_to root_path, alert: '交易發生錯誤，請稍候再試'
+      end
     else
-      redirect_to root_path, alert: '交易發生錯誤，請稍候再試'
+      redirect_to root_path, alert: '該訂單無法付款'
     end
+
   end
 
   def create

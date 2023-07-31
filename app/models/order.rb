@@ -14,9 +14,27 @@
 #  updated_at :datetime         not null
 #
 class Order < ApplicationRecord
+  include AASM
   belongs_to :user
 
   before_create :set_num
+
+  aasm column: 'status', no_direct_assignment: true do
+    state :pending, initial: true
+    state :paid, :cancelled, :failed
+
+    event :pay do
+      transitions from: :pending, to: :paid
+    end
+
+    event :cancel do
+      transitions from: [:pending, :paid], to: :cancelled
+    end
+
+    event :fail do
+      transitions from: :pending, to: :failed
+    end
+  end
 
   private
 
@@ -32,9 +50,3 @@ class Order < ApplicationRecord
     "#{d}-#{r}"
   end
 end
-
-    #  status     :string
-    # pending
-    # paid
-    # cancelled
-    # failed
