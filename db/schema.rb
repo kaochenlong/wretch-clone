@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_083626) do
     t.string "solution"
     t.integer "user_id", null: false
     t.integer "amount"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["num"], name: "index_orders_on_num", unique: true

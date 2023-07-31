@@ -1,6 +1,10 @@
 <h1 class="text-3xl">訂單資訊</h1>
 
-<%= form_with(model: @order) do |f| %>
+post -> /orders/create
+
+<%= form_with(model: @order, data: { turbo: false }) do |f| %>
+  <%= f.hidden_field :solution, value: params[:id] %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
