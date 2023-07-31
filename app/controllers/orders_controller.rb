@@ -1,5 +1,11 @@
 class OrdersController < ApplicationController
+  include Solutionable
+
   before_action :authenticate_user!
+
+  def pay
+    @order = Order.find_by!(num: params[:id])
+  end
 
   def create
     price = solution_price(orders_params[:solution])
@@ -9,7 +15,8 @@ class OrdersController < ApplicationController
     @order.amount = price
 
     if @order.save
-      redirect_to root_path, notice: 'ok'
+      # /orders/:id/pay
+      redirect_to pay_order_path(@order.num), notice: '訂單已建立'
     else
       #
     end
@@ -19,10 +26,5 @@ class OrdersController < ApplicationController
 
   def orders_params
     params.require(:order).permit(:name, :tel, :solution)
-  end
-
-  def solution_price(s)
-    solutions = {pro: 10, premium: 50}
-    solutions[s.to_sym]
   end
 end

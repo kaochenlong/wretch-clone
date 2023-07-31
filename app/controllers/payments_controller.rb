@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  include Solutionable
+
   before_action :authenticate_user!
 
   def show
@@ -6,12 +8,5 @@ class PaymentsController < ApplicationController
     redirect_to root_path, alert: '無此方案' and return if price.nil?
 
     @order = Order.new
-  end
-
-  private
-
-  def solution_price(s)
-    solutions = {pro: 10, premium: 50}
-    solutions[s.to_sym]
   end
 end

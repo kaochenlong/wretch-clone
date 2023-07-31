@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :payments, only: [:show]
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create] do
+    member do
+      get :pay
+    end
+  end
+  # get "/orders/:num/pay", to: 'orders#pay'
 
   resources :articles do
     member do
