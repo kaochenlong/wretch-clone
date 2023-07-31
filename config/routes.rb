@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create] do
     member do
       get :pay
+      patch :please_pay
     end
   end
   # get "/orders/:num/pay", to: 'orders#pay'

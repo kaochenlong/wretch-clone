@@ -1,3 +1,17 @@
 <h1>付款</h1>
 
 訂單編號：<%= @order.num %>
+
+刷卡機
+
+
+
+<%= form_with(model: @order,
+              url: please_pay_order_path(@order.num),
+              method: 'patch',
+              data: { turbo: false }) do |f| %>
+
+  <div data-controller="braintree" data-token="<%= @token %>"></div>
+
+  <%= f.submit '送出', class: 'action-btn' %>
+<% end %>

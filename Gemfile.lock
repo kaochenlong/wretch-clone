@@ -74,6 +74,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    braintree (4.12.0)
+      builder (>= 3.2.4)
+      rexml (>= 3.1.9)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -225,6 +228,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 3.2)
   bootsnap
+  braintree (~> 4.12)
   capybara
   debug
   image_processing (~> 1.2)

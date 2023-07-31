@@ -6,3 +6,4 @@ pin "@hotwired/stimulus", to: "stimulus.min.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "dayjs", to: "https://ga.jspm.io/npm:dayjs@1.11.9/dayjs.min.js"
+pin "braintree", to: "https://ga.jspm.io/npm:braintree-web-drop-in@1.39.1/dist/browser/dropin.js"
