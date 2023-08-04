@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @albums = Album.all
+    @albums = Album.order(position: :asc)
   end
 
   def show
@@ -30,6 +30,17 @@ class AlbumsController < ApplicationController
       redirect_to @album, notice: '上傳成功'
     else
       redirect_to @album, alert: '上傳失敗'
+    end
+  end
+
+  def sort
+    @album = current_user.albums.find(params[:id])
+    new_position = params[:position].to_i
+
+    if @album.insert_at(new_position)
+      render json: {}, status: :ok
+    else
+      render json: {}, status: 500
     end
   end
 

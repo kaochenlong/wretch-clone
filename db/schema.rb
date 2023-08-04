@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_04_033220) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_070838) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_033220) do
     t.boolean "online", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["deleted_at"], name: "index_albums_on_deleted_at"
     t.index ["user_id"], name: "index_albums_on_user_id"
   end

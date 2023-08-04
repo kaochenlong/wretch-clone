@@ -2,9 +2,9 @@
 
 <%= link_to '新增相簿', new_album_path, class: 'action-btn' %>
 
-<ul class="mt-4 grid grid-cols-4 gap-4">
+<ul class="grid grid-cols-4 gap-4 mt-4" data-controller="sort">
 <% @albums.each do |album| %>
-  <li class="col-span-1">
+  <li class="col-span-1" data-id="<%= album.id %>">
     <div class="border border-slate-400">
       <picture>
         <%= link_to album do %>
@@ -12,7 +12,7 @@
         <% end %>
       </picture>
 
-      <footer class="px-2 py-1 flex justify-between font-semibold">
+      <footer class="flex justify-between px-2 py-1 font-semibold">
         <span><%= link_to album.name, album %></span>
         <% if album.password.present? %>
           <span>X</span>

@@ -14,3 +14,7 @@
 }
 
 */
+
+.drag-ghost {
+  @apply border-2 border-dashed border-slate-600;
+}

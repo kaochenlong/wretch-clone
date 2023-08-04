@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy], shallow: true
   end
 
-  resources :albums
+  resources :albums do
+    member do
+      patch :sort
+    end
+  end
 
   resource :users, except: [:show, :destroy] do
     collection do

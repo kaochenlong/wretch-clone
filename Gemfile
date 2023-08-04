@@ -32,3 +32,4 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "braintree", "~> 4.12"
 gem "aasm", "~> 5.5"
+gem "acts_as_list", "~> 1.1"

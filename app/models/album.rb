@@ -13,6 +13,8 @@
 #  updated_at  :datetime         not null
 #
 class Album < ApplicationRecord
+  acts_as_list
+
   has_many_attached :photos do |attachable|
     attachable.variant :small, resize_to_limit: [100, 100]
   end
