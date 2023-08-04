@@ -1,0 +1,10 @@
+jp:
+  navbar:
+    article: 記事
+    album: アルバム
+    pay: 支払い
+  helpers:
+    submit:
+      article:
+        create: 記事の作成
+        update: 記事の更新

@@ -1,29 +1,29 @@
 <%= form_with(model: article, data: { turbo: false }) do |f| %>
   <div>
-    <%= f.label :category, '分類' %>
+    <%= f.label :category %>
     <%= f.select :category,
           Article.categories.map{ |k, _| [k.to_s, k.to_s]} %>
   </div>
 
   <div>
-    <%= f.label :title, '標題' %>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
   <div>
-    <%= f.label :sub_title, '子標題' %>
+    <%= f.label :sub_title %>
     <%= f.text_field :sub_title %>
   </div>
 
   <div>
-    <%= f.label :password, '密碼' %>
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
 
   <div>
-    <%= f.label :content, '內文' %>
+    <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
 
-  <%= f.submit %>
+  <%= f.submit class: 'action-btn' %>
 <% end %>

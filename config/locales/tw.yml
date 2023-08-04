@@ -1,0 +1,19 @@
+tw:
+  navbar:
+    article: 文章
+    album: 相簿
+    pay: 課金
+
+  helpers:
+    label:
+      article:
+        category: 分類
+        title: 標題
+        sub_title: 副標題
+        password: 密碼
+        content: 內文
+
+    submit:
+      article:
+        create: 新增文章
+        update: 更新文章

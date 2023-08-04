@@ -3,7 +3,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :user_signed_in?, :current_user
 
+  around_action :switch_locale
+
   private
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
 
   def authenticate_user!
     if not user_signed_in?
@@ -27,5 +33,10 @@ class ApplicationController < ActionController::Base
     render file: Rails.root.join('public', '404.html'),
            status: 404,
            layout: false
+  end
+
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
   end
 end
