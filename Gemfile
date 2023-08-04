@@ -9,6 +9,7 @@ group :development do
   gem "web-console"
   gem "tailwindcss-rails", "~> 2.0"
   gem "annotate", "~> 3.2"
+  gem "letter_opener", "~> 1.8"
 end
 
 group :test do
@@ -33,3 +34,4 @@ gem "image_processing", "~> 1.2"
 gem "braintree", "~> 4.12"
 gem "aasm", "~> 5.5"
 gem "acts_as_list", "~> 1.1"
+

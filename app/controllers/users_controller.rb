@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      # 寄信
+      UserMailer.with(user: @user).welcome_email.deliver_later
+
       redirect_to root_path, notice: '註冊成功'
     else
       render :new
