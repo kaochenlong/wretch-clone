@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
   # Strong Paramenter
   def article_params
     params.require(:article)
-          .permit(:title, :content, :sub_title, :password)
+          .permit(:category, :title, :content, :sub_title, :password)
 
     # .merge(a: 1, b: 2)
   end

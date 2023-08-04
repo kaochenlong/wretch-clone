@@ -1,5 +1,11 @@
 <%= form_with(model: article, data: { turbo: false }) do |f| %>
   <div>
+    <%= f.label :category, '分類' %>
+    <%= f.select :category,
+          Article.categories.map{ |k, _| [k.to_s, k.to_s]} %>
+  </div>
+
+  <div>
     <%= f.label :title, '標題' %>
     <%= f.text_field :title %>
   </div>
