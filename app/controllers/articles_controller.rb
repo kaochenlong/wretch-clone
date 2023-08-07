@@ -4,12 +4,13 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :unlock]
 
   def index
-    @articles = Article.order(id: :desc)
+    keyword = params[:keyword]
+    @articles = Article.search(keyword).order(id: :desc)
   end
 
   def show
     @comment = Comment.new
-    @comments = @article.comments.order(id: :desc)
+    @comments = @article.comments
   end
 
   def new

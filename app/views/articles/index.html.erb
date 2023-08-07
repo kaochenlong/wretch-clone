@@ -1,5 +1,13 @@
 <h1 class="text-2xl">文章列表</h1>
 
+<%= form_with(url: '', method: :get) do |f| %>
+  <%= f.search_field :keyword, value: params[:keyword] %>
+  <%= f.submit 'Search', class: 'action-btn' %>
+  <%= link_to 'Clear', articles_path, class: 'action-btn' %>
+<% end %>
+
+<hr class="my-4">
+
 <%= link_to "新增文章", new_article_path, class: 'action-btn' %>
 
 <ul>
