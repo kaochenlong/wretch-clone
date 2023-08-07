@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from Pundit::NotAuthorizedError, with: :not_found
 
   helper_method :user_signed_in?, :current_user
 

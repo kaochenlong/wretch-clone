@@ -35,3 +35,7 @@ gem "braintree", "~> 4.12"
 gem "aasm", "~> 5.5"
 gem "acts_as_list", "~> 1.1"
 
+
+gem "ransack", "~> 4.0"
+
+gem "pundit", "~> 2.3"

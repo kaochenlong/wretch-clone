@@ -5,7 +5,9 @@ class ArticlesController < ApplicationController
 
   def index
     keyword = params[:keyword]
-    @articles = Article.search(keyword).order(id: :desc)
+
+    @q = Article.ransack(title_or_content_or_sub_title_or_user_name_cont: keyword)
+    @articles = @q.result(distinct: true)
   end
 
   def show
@@ -14,6 +16,8 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    authorize :article
+
     @article = Article.new
   end
 
@@ -31,6 +35,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    authorize(@article)
+
     if @article.update(article_params)
       redirect_to articles_path, notice: '更新成功'
     else

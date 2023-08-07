@@ -56,6 +56,10 @@ class User < ApplicationRecord
     find_by email:, password:
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["email", "name"]
+  end
+
   private
   def encrypt_password
     pw = "x#{self.password}y".reverse

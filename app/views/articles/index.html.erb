@@ -32,12 +32,12 @@
       <footer><%= link_to '閱讀更多', article_path(article) %></footer>
     </article>
 
-    <%= link_to '更新', edit_article_path(article) %>
+    <%= link_to '更新', edit_article_path(article) if policy(article).update? %>
     <%= link_to '刪除', article_path(article),
                        data: {
                          turbo_method: 'delete',
                          turbo_confirm: '確定刪除？'
-                       } %>
+                       } if policy(article).destroy? %>
   </li>
 <% end %>
 </ul>
