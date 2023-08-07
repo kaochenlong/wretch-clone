@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     keyword = params[:keyword]
 
     @q = Article.ransack(title_or_content_or_sub_title_or_user_name_cont: keyword)
-    @articles = @q.result(distinct: true)
+    @articles = @q.result(distinct: true).page(params[:page]).per(2)
   end
 
   def show
