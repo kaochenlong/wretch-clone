@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails", "~> 6.0"
 end
 
 group :development do
@@ -35,9 +36,6 @@ gem "braintree", "~> 4.12"
 gem "aasm", "~> 5.5"
 gem "acts_as_list", "~> 1.1"
 
-
 gem "ransack", "~> 4.0"
-
 gem "pundit", "~> 2.3"
-
 gem "kaminari", "~> 1.2"

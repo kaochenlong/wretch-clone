@@ -37,7 +37,7 @@ class ApplicationPolicy
   end
 
   def admin_user?
-    user.role == 'admin'
+    user && user.role == 'admin'
   end
 
   class Scope
