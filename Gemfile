@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails", "~> 6.0"
+  gem "faker", "~> 3.2"
+  gem "factory_bot_rails", "~> 6.2"
 end
 
 group :development do

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
       redirect_to root_path, notice: '註冊成功'
     else
-      render :new
+      render :new, status: 422
     end
   end
 
